@@ -17,8 +17,8 @@ fastify.get("/events", (_req, reply) => {
     const id = Date.now();
     const data = `Hello World ${id}`;
     const message = `retry: ${timeout}\nid:${id}\ndata: ${data}\n\n`;
-    // reply.send(message); // definitely more than 500ms
-    reply.raw.write(message); // this is not working
+    reply.send(message); // definitely more than 500ms
+    // reply.raw.write(message); // this is not working
   }, timeout);
 });
 
