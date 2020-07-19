@@ -12,13 +12,14 @@ fastify.get("/events", (_req, reply) => {
     .header("Connection", "keep-alive")
     .code(200);
 
+  const timeout = 500;
   setInterval(() => {
     const id = Date.now();
     const data = `Hello World ${id}`;
-    const message = `retry: ${1000}\nid:${id}\ndata: ${data}\n\n`;
-    reply.send(message); // definitely more than 500ms
-    // reply.raw.write(message); // this is not working
-  }, 500);
+    const message = `retry: ${timeout}\nid:${id}\ndata: ${data}\n\n`;
+    // reply.send(message); // definitely more than 500ms
+    reply.raw.write(message); // this is not working
+  }, timeout);
 });
 
 fastify.listen(3000);

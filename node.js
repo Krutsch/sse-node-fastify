@@ -15,12 +15,13 @@ const server = http.createServer((req, res) => {
       Connection: "keep-alive",
     });
 
+    const timeout = 500;
     return setInterval(() => {
       const id = Date.now();
       const data = `Hello World ${id}`;
-      const message = `retry: ${1000}\nid:${id}\ndata: ${data}\n\n`;
+      const message = `retry: ${timeout}\nid:${id}\ndata: ${data}\n\n`;
       res.write(message);
-    }, 500);
+    }, timeout);
   }
 });
 
