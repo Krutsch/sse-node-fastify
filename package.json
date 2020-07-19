@@ -1,0 +1,17 @@
+{
+  "name": "server-events",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:node": "node node.js",
+    "start:fastify": "node fastify.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.1.1",
+    "fastify-static": "^3.1.0"
+  }
+}
